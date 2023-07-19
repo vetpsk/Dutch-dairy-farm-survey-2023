@@ -64,13 +64,13 @@ multi_par_reasons <- multi_par_reasons %>% group_by(parity) %>%
 
 
 a <- ggplot(multi_par_reasons, aes(x = parity, fill = reasons, y = count)) + 
-  geom_bar(stat = "identity", position = "dodge", col = "black") +
-  geom_text(aes(label = percent_par), size = 3, 
+          geom_bar(stat = "identity", position = "dodge", col = "black") +
+          geom_text(aes(label = percent_par), size = 3, 
             position = position_dodge(width = .9), 
             check_overlap = T, vjust = -1) + 
-  scale_fill_manual(values = c("#999999", "#E69F00", "#56B4E9", 
+          scale_fill_manual(values = c("#999999", "#E69F00", "#56B4E9", 
                                "#009E73", "#F0E442", "#0072B2", "#D55E00")) + 
-  ggtitle("Paritywise reasons for recently culled multiparous cows", 
+          ggtitle("Paritywise reasons for recently culled multiparous cows", 
           subtitle = "(labels are %/100)")
 a + theme(plot.title = element_text(size = rel(1), hjust = 0.5),
           plot.subtitle = element_text(size = rel(0.8), hjust = 0.75)) 
@@ -85,11 +85,11 @@ primi_reason <- primi_reason %>%
                                     "reduce herdsize",
                                     "other")))
 a <- ggplot(primi_reason, aes(x = total_count, y = reason)) + 
-  geom_col(fill = c("#999999", "#E69F00", "#56B4E9", "#009E73", 
+          geom_col(fill = c("#999999", "#E69F00", "#56B4E9", "#009E73", 
                     "#F0E442", "#0072B2", "#D55E00", "#CC79A7"), col = "black") + 
-  geom_text(aes(label = percent), size = 3, hjust = 1) +
-  ylab("Reasons") + xlab("Count (total)") + 
-  ggtitle("Primiparous culling reasons", subtitle = "(text values are %/100)")
+          geom_text(aes(label = percent), size = 3, hjust = 1) +
+          ylab("Reasons") + xlab("Count (total)") + 
+          ggtitle("Primiparous culling reasons", subtitle = "(text values are %/100)")
 
 a + theme(plot.title = element_text(hjust = 0.5, size = rel(1.2)), 
           plot.subtitle = element_text(hjust = 0.5, size = rel(0.6)))
@@ -127,3 +127,4 @@ b <- c(NA,
   "Pumped, draughty",
   "phased stop operation")
 primi_appendix <- data.frame(a,b)
+multi_reason <- multi_reason %>% full_join(multi_par_reasons, by = c("reason" = "reasons"))
