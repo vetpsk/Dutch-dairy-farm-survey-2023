@@ -14,7 +14,7 @@ Since the abolishment of the milk quota system in Europe in 2014 and the introdu
 
 ## Backfiles  
 
-* [pre-print](https://doi.org/10.1016/j.prevetmed.2023.105997)
+* [Full article](https://doi.org/10.1016/j.prevetmed.2023.105997)
 * [cover letter for survey](cover_letter.md)
 * [survey questionnaire](Questionnaire.md)
 * [final code used in manuscript](Rcode/rcode_final.R)
